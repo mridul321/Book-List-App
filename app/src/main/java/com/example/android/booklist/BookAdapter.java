@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -34,6 +36,12 @@ public class BookAdapter extends ArrayAdapter<Books> {
 
         TextView bookAuthor = listItemView.findViewById(R.id.book_author);
         bookAuthor.setText(author);
+
+        Animation animation = null;
+        animation = AnimationUtils.loadAnimation(getContext(), R.anim.push_left_in);
+        animation.setDuration(400);
+        listItemView.startAnimation(animation);
+
 
         return listItemView;
     }
