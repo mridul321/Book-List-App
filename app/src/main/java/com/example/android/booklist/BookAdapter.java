@@ -1,6 +1,7 @@
 package com.example.android.booklist;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,28 @@ public class BookAdapter extends ArrayAdapter<Books> {
         bookAuthor.setText(author);
 
         Animation animation = null;
-        animation = AnimationUtils.loadAnimation(getContext(), R.anim.push_left_in);
+        animation = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
         animation.setDuration(400);
         listItemView.startAnimation(animation);
 
 
+        if(Build.VERSION.SDK_INT >= 9)
+        {
+            OverScrollDisabler.disableOverScroll(listItemView);
+
+        }
+
+
+
+
         return listItemView;
+    }
+
+    public static class OverScrollDisabler
+    {
+        public static void disableOverScroll(View view)
+        {
+            view.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        }
     }
 }

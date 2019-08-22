@@ -3,6 +3,7 @@ package com.example.android.booklist;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new BookAdapter(this,new ArrayList<Books>());
        listView.setAdapter(mAdapter);
+
+       listView.clearAnimation();
+
+
 
        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
@@ -94,3 +99,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+

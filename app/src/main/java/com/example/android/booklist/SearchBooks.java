@@ -28,14 +28,14 @@ public class SearchBooks extends AppCompatActivity {
         button = findViewById(R.id.button);
 
 
-      //  Log.e(LOG_TAG,"recieved input"+ searchInput);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SearchBooks.this,MainActivity.class);
                 String searchInput = editText.getText().toString();
-                searchResult = ("https://www.googleapis.com/books/v1/volumes?q="+ searchInput +"&maxResults=10");
+                searchResult = ("https://www.googleapis.com/books/v1/volumes?q="+ searchInput +"&maxResults=15");
                 intent.putExtra("Data",searchResult);
                 startActivity(intent);
             }
