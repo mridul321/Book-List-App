@@ -35,6 +35,7 @@ public class SearchBooks extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SearchBooks.this,MainActivity.class);
                 String searchInput = editText.getText().toString();
+                searchInput = searchInput.replaceAll("\\s+","");
                 searchResult = ("https://www.googleapis.com/books/v1/volumes?q="+ searchInput +"&maxResults=15");
                 intent.putExtra("Data",searchResult);
                 startActivity(intent);
